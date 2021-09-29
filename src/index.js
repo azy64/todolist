@@ -1,5 +1,7 @@
 import _ from 'lodash';
+import img from '../src/images/'
 import './css/style.css';
+
 
 const component = () => {
   const element = document.createElement('p');
@@ -8,3 +10,4 @@ const component = () => {
 };
 
 document.body.append(component());
+document.querySelector('.refresh').src = img;
