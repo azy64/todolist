@@ -4,13 +4,34 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>To Do List</title>
 <script defer src="tunaweza.js"></script></head>
 <body>
-    <div>
-        <h1>
-            <i>To do List</i>
-        </h1>
-    </div>
+    <main>
+        <div class="container w-50 m-auto bg-white mt-5">
+            <div class="grid grid-col-2 border-b">
+                <div class="p">
+                    <h3 class="m-0 text-dark fw-0">Today's TO Do</h3>
+                </div>
+                <div class="p text-end">
+                    <img src="./images/checked.png" alt="image_refresh" class="refresh" width="20" />
+                </div>
+            </div>
+            <div class="grid grid-col-2 border-b">
+                <div class="ps overflow-hidden">
+                    <input type="text" id="task" placeholder="Add to your list..." class="text-dark no-border w-100 h-100"/>
+                </div>
+                <div class="p text-end">
+                    <img src="./images/checked.png" alt="image_refresh" class="enter" width="20" />
+                </div>
+            </div>
+            <div id="task-container">
+
+            </div>
+            <div class="bg-grey text-center min-h-50 pt">
+                <button class="no-border bg-transparent fs-15 btn">Clear all completed</button>
+            </div>
+        </div>
+    </main>
 </body>
 </html>
