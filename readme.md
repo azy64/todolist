@@ -1,21 +1,21 @@
 
-# Awesome books
+# To Do List
 
 ## Built With
 
-- HTML ![alt text](https://www.w3.org/html/logo/badge/html5-badge-v-solo.png)
-- CSS
-- javascript
-- Webpack
+- ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
+- ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
+- ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
+- ![Webpack](https://img.shields.io/badge/webpack-%238DD6F9.svg?style=for-the-badge&logo=webpack&logoColor=black)
 
 
 ## Getting Started
 
-**This is my Awesome book project**
+**This is my To DO LIST project**
 
 
 To get a local copy up and running follow these simple example steps.
-1) Enter `git clone git@github.com:azy64/awesome-books.git` into terminal
+1) Enter `git clone git@github.com:azy64/todolist.git` into terminal
 
 2) Open in browser to view site
 
@@ -25,14 +25,6 @@ To get a local copy up and running follow these simple example steps.
 
 
 ## Authors 1
-
-👤 **Roshan Bajgain**
-
-- GitHub: [@roshan-bajgain](https://github.com/roshan-bajgain)
-- Twitter: [@RoshanBajgain10](https://twitter.com/RoshanBajgain10)
-- LinkedIn: [LinkedIn](https://www.linkedin.com/in/roshan-bazgain/)
-
-## Authors 2
 
 👤 **Azaria azy**
 - GitHub: [@Azaria azy](https://github.com/azy64)
