@@ -1,4 +1,5 @@
 import _ from 'lodash';
+import './css/style.css';
 
 const component = () => {
     const element = document.createElement('p');

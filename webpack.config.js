@@ -9,11 +9,23 @@ module.exports = {
         clean: true,
     },
     mode: 'development',
+    devtool: 'inline-source-map',
+    devServer: {
+        static:'/dist'
+    },
     plugins: [
         new HtmlWebpackPlugin({
             title: 'toDoList',
             template: './src/index.html',
         })
-    ]
+    ],
+    module: {
+        rules:[
+            {
+                use :['style-loader','css-loader'],
+                test: /\.css$/i,
+            }
+        ]
+    }
 
 }
