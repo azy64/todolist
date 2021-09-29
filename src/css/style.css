@@ -1,13 +1,44 @@
 body {
     background-color: #dedede;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .bg-white {
     background-color: white;
 }
 
+.bg-grey {
+    background-color: #dedede;
+}
+
+.bg-transparent {
+    background-color: transparent;
+}
+
+.fs-15 {
+    font-size: medium;
+}
+
+.btn {
+    color: rgb(118,118,118);
+    transition: color 1ms;
+    cursor: pointer;
+}
+.btn:hover{
+    color: #504F4F;
+    text-decoration: underline;
+}
+
 .container {
     box-shadow: 0px 5px 5px #504F4F;
+}
+
+.text-dark {
+ color: #504F4F;
+}
+
+.fw-0 {
+    font-weight: normal;
 }
 
 .w-50 {
@@ -16,6 +47,18 @@ body {
 
 .w-100 {
     width: 100%;
+}
+
+.h-100 {
+    height: 99.5%;
+}
+
+.overflow-hidden {
+    overflow: hidden;
+}
+
+.no-border {
+    border: none;
 }
 
 .mt-5 {
@@ -35,6 +78,10 @@ body {
     min-height: 300px;
 }
 
+.min-h-50 {
+    min-height: 55px;
+}
+
 .grid {
     display: grid;
 }
@@ -45,4 +92,47 @@ body {
 
 .grid-col-3 {
     grid-template-columns: 10% 80% 10%;
+}
+
+.m-0 {
+    margin: 0;
+}
+
+.p {
+    padding: 15px;
+}
+
+.ps {
+    padding-left: 15px;
+}
+
+.pt {
+    padding-top: 28px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-end {
+    text-align: end;
+}
+
+.border-b {
+
+    border-bottom: 1px solid #dedede;
+}
+
+#task {
+    border: none !important;
+    outline: none !important;
+    font-style: italic !important;
+}
+
+#task :focus{
+    border: 0 !important;
+    outline: 0 !important;
+}
+#task ::placeholder{
+    font-style: italic;
 }
