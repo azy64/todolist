@@ -1,4 +1,5 @@
 import _ from 'lodash';
+import Update from './update.js';
 import img from './images/refresh.png';
 import img1 from './images/refresh-hover.png';
 import enter from './images/enter.png';
@@ -12,7 +13,7 @@ import deleteIconHover from './images/delete-hover.png';
 import './css/style.css';
 
 const container = document.getElementById('task-container');
-const data = [
+let data = [
   {
     description: 'clean the home',
     completed: false,
@@ -29,6 +30,7 @@ const data = [
     index: 3,
   },
 ];
+if (Update.loadData().length > 0) data = Update.loadData();
 const component = () => {
   const element = document.createElement('p');
   const refresh = document.querySelector('.refresh');
@@ -53,6 +55,9 @@ const loadIconAndEvent = () => {
   const menus = document.querySelectorAll('.menu');
   squares.forEach((img) => {
     img.src = square;
+    /**
+     * Here we handle the event for the checkbox
+     */
     if (img.classList.contains('checked')) img.src = checked;
     img.addEventListener('mouseover', () => {
       if (img.src !== checked) img.src = squareHover;
@@ -63,12 +68,23 @@ const loadIconAndEvent = () => {
     img.addEventListener('click', () => {
       const parent = img.parentNode;
       const target = parent.nextSibling.nextSibling.firstChild.nextSibling;
-      // console.log('cible: ', target);
       img.src = img.src === checked ? square : checked;
-      if (img.src === checked) target.classList.add('line-through');
-      else target.classList.remove('line-through');
+      const id = parseInt(img.id, 10);
+      const num = data.findIndex((value) => value.index === id);
+      if (img.src === checked) {
+        target.classList.add('line-through');
+        data[num].completed = true;
+      } else {
+        target.classList.remove('line-through');
+        data[num].completed = false;
+      }
+      Update.save(data);
+      console.log('update:', data);
     });
   });
+  /**
+   * here we handle the event for delete and menu button
+   */
   menus.forEach((img) => {
     img.src = menu;
     img.addEventListener('mouseover', () => {
@@ -116,7 +132,7 @@ const addTask = () => {
     chaine += `
         <div class=" grid grid-col-3 border-b p">
             <div class="pt-5">
-                <img alt="image_square" class="square ${check(task.completed)}" src="" width="20"/>
+                <img  id="${task.index}" alt="image_square" class="square ${check(task.completed)}" src="" width="20"/>
             </div>
             <div>
                 <p class="h-100 text-dark edit ${check(task.completed) === 'checked' ? 'line-through' : ''}">${task.description}</p>
