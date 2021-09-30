@@ -11,6 +11,10 @@ body {
   background-color: #dedede;
 }
 
+.bg-danger {
+  background-color: red !important;
+}
+
 .bg-selected {
   /* cbackground-color: #ffdf80; */
   background-color: rgba(255, 223, 128, 0.2);
@@ -119,6 +123,10 @@ body {
   padding-top: 40%;
 }
 
+.pt-3 {
+  padding-top: 15px;
+}
+
 .line-through {
   text-decoration: line-through;
 }
@@ -141,6 +149,11 @@ body {
   font-style: italic !important;
 }
 
+.no-resize :focus {
+  outline: none;
+  border: none;
+}
+
 #task :focus {
   border: 0 !important;
   outline: 0 !important;
@@ -152,4 +165,19 @@ body {
 
 .edit {
   cursor: text !important;
+}
+
+.no-resize {
+  resize: none !important;
+  display: inline-block;
+  outline: none;
+  border: none;
+}
+
+.cursor-hand {
+  cursor: pointer;
+}
+
+.cursor-move {
+  cursor: move;
 }
