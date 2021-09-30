@@ -53,6 +53,9 @@ const component = () => {
 const loadIconAndEvent = () => {
   const squares = document.querySelectorAll('.square');
   const menus = document.querySelectorAll('.menu');
+  /**
+   * we start to handle the event for checkboxs-----
+   */
   squares.forEach((img) => {
     img.src = square;
     /**
@@ -79,7 +82,6 @@ const loadIconAndEvent = () => {
         data[num].completed = false;
       }
       Update.save(data);
-      console.log('update:', data);
     });
   });
   /**
@@ -110,6 +112,8 @@ const editable = () => {
   p.forEach((element) => {
     element.addEventListener('click', () => {
       element.style.outline = 'none';
+      element.classList.remove('line-through');
+      element.setAttribute('autofocus', true);
       const parent = element.parentNode;
       parent.parentNode.classList.add('bg-selected');
       parent.nextSibling.nextSibling.firstChild.nextSibling.src = deleteIcon;
@@ -118,6 +122,12 @@ const editable = () => {
     element.addEventListener('blur', () => {
       const parent = element.parentNode;
       // console.log('jai perdu le focus');
+      element.classList.add('line-through');
+      const imgId = parseInt(parent.previousSibling.previousSibling.firstChild.nextSibling.id, 10);
+      // console.log('image:', imgId);
+      const NUM = data.findIndex((value) => value.index === imgId);
+      data[NUM].description = element.textContent;
+      Update.save(data);
       parent.parentNode.classList.remove('bg-selected');
       parent.nextSibling.nextSibling.firstChild.nextSibling.src = menu;
     });
