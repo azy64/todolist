@@ -3,11 +3,11 @@ import Update from './update.js';
 import img from './images/refresh.png';
 import img1 from './images/refresh-hover.png';
 import enter from './images/enter.png';
-import square from './images/square.png';
-import squareHover from './images/square-hover.png';
+// import square from './images/square.png';
+// import squareHover from './images/square-hover.png';
 import menu from './images/menu.png';
 import menuHover from './images/menu-hover.png';
-import checked from './images/checked.png';
+// import checked from './images/checked.png';
 import deleteIcon from './images/delete.png';
 import deleteIconHover from './images/delete-hover.png';
 import './css/style.css';
@@ -51,39 +51,7 @@ const component = () => {
  * some events
  */
 const loadIconAndEvent = () => {
-  const squares = document.querySelectorAll('.square');
   const menus = document.querySelectorAll('.menu');
-  /**
-   * we start to handle the event for checkboxs-----
-   */
-  squares.forEach((img) => {
-    img.src = square;
-    /**
-     * Here we handle the event for the checkbox
-     */
-    if (img.classList.contains('checked')) img.src = checked;
-    img.addEventListener('mouseover', () => {
-      if (img.src !== checked) img.src = squareHover;
-    });
-    img.addEventListener('mouseout', () => {
-      if (img.src !== checked) img.src = square;
-    });
-    img.addEventListener('click', () => {
-      const parent = img.parentNode;
-      const target = parent.nextSibling.nextSibling.firstChild.nextSibling;
-      img.src = img.src === checked ? square : checked;
-      const id = parseInt(img.id, 10);
-      const num = data.findIndex((value) => value.index === id);
-      if (img.src === checked) {
-        target.classList.add('line-through');
-        data[num].completed = true;
-      } else {
-        target.classList.remove('line-through');
-        data[num].completed = false;
-      }
-      Update.save(data);
-    });
-  });
   /**
    * here we handle the event for delete and menu button
    */
@@ -100,6 +68,7 @@ const loadIconAndEvent = () => {
   });
 };
 
+// check if the task is completed
 const check = (value) => {
   if (value) return 'checked';
   return '';
@@ -142,7 +111,8 @@ const addTask = () => {
     chaine += `
         <div class=" grid grid-col-3 border-b p">
             <div class="pt-5">
-                <img  id="${task.index}" alt="image_square" class="square ${check(task.completed)}" src="" width="20"/>
+                <!--<img  id="${task.index}" alt="image_square" class="square ${check(task.completed)}" src="" width="20"/>-->
+                <input type="checkbox"  id="${task.index}"  class="square" ${check(task.completed)} width="20"/>
             </div>
             <div>
                 <p class="h-100 text-dark edit ${check(task.completed) === 'checked' ? 'line-through' : ''}">${task.description}</p>
@@ -161,3 +131,4 @@ const addTask = () => {
 
 document.body.append(component());
 addTask();
+Update.changedState(data);
