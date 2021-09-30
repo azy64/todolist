@@ -3,11 +3,8 @@ import Update from './update.js';
 import img from './images/refresh.png';
 import img1 from './images/refresh-hover.png';
 import enter from './images/enter.png';
-// import square from './images/square.png';
-// import squareHover from './images/square-hover.png';
 import menu from './images/menu.png';
 import menuHover from './images/menu-hover.png';
-// import checked from './images/checked.png';
 import deleteIcon from './images/delete.png';
 import deleteIconHover from './images/delete-hover.png';
 import './css/style.css';
@@ -90,10 +87,8 @@ const editable = () => {
     });
     element.addEventListener('blur', () => {
       const parent = element.parentNode;
-      // console.log('jai perdu le focus');
       element.classList.add('line-through');
       const imgId = parseInt(parent.previousSibling.previousSibling.firstChild.nextSibling.id, 10);
-      // console.log('image:', imgId);
       const NUM = data.findIndex((value) => value.index === imgId);
       data[NUM].description = element.textContent;
       Update.save(data);
