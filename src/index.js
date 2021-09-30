@@ -44,6 +44,10 @@ const component = () => {
   element.textContent = _.join(['Made', 'By SAIDI AZARIA'], ' ');
   return element;
 };
+/**
+ * this function load images and  give them
+ * some events
+ */
 const loadIconAndEvent = () => {
   const squares = document.querySelectorAll('.square');
   const menus = document.querySelectorAll('.menu');
