@@ -31,6 +31,18 @@ const component = () => {
   element.textContent = _.join(['Made', 'By SAIDI AZARIA'], ' ');
   return element;
 };
+
+const onBlur = (e) => {
+  const parent = e.target.parentNode;
+  const imgId = parseInt(parent.previousSibling.previousSibling.firstChild.nextSibling.id, 10);
+  if (parent.previousSibling.previousSibling.firstChild.nextSibling.checked) e.target.classList.add('line-through');
+
+  const NUM = data.findIndex((value) => value.index === imgId);
+  data[NUM].description = e.target.value;
+  Update.save(data);
+  parent.parentNode.classList.remove('bg-selected');
+  parent.nextSibling.nextSibling.firstChild.nextSibling.src = menu;
+};
 /**
  * this function load images and  give them
  * some events
@@ -51,11 +63,18 @@ const loadIconAndEvent = () => {
         img.src = deleteIconHover;
         img.classList.remove('cursor-move');
         img.classList.add('cursor-hand');
+        const pere = img.parentNode.previousSibling.previousSibling;
+        pere.removeEventListener('blur', onBlur, true);
       }
     });
     img.addEventListener('mouseout', () => {
-      if (img.src !== deleteIconHover) img.src = menu;
-      else img.src = deleteIcon;
+      if (img.src !== deleteIconHover) {
+        img.src = menu;
+      } else {
+        img.src = deleteIcon;
+        const pere = img.parentNode.previousSibling.previousSibling;
+        pere.addEventListener('blur', onBlur, true);
+      }
     });
     /**
      * remove one task--------------
@@ -94,18 +113,9 @@ const editable = () => {
       parent.parentNode.classList.add('bg-selected');
       parent.nextSibling.nextSibling.firstChild.nextSibling.src = deleteIcon;
       element.setAttribute('contenteditable', true);
-    }, true);
-    element.addEventListener('blur', () => {
-      const parent = element.parentNode;
-      const imgId = parseInt(parent.previousSibling.previousSibling.firstChild.nextSibling.id, 10);
-      if (parent.previousSibling.previousSibling.firstChild.nextSibling.checked) element.classList.add('line-through');
-
-      const NUM = data.findIndex((value) => value.index === imgId);
-      data[NUM].description = element.value;
-      Update.save(data);
-      parent.parentNode.classList.remove('bg-selected');
-      parent.nextSibling.nextSibling.firstChild.nextSibling.src = menu;
     }, false);
+    const pere = element.parentNode;
+    pere.addEventListener('blur', onBlur, true);
   });
 };
 /**
