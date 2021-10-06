@@ -1,5 +1,8 @@
 export default class Utilities {
     static add = (data, task) => {
+      if (!Array.isArray(data)) return [];
+      if (typeof (task) !== 'object') return data;
+      if (!task.description) return data;
       task.index = data.length + 1;
       task.completed = false;
       data.push(task);
