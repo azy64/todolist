@@ -15,7 +15,7 @@ const data1 = [
   },
   { index: 2, description: 'cook food', completed: false },
 ];
-describe('Test the mrthods add and clearAllTask', () => {
+describe('Test the methods add', () => {
   test('test for add method', () => {
     expect(Utilities.add(data, task)).toHaveLength(1);
   });
@@ -34,5 +34,23 @@ describe('Test the mrthods add and clearAllTask', () => {
   });
   test('test for add method when data is not an Array', () => {
     expect(Utilities.add('kjnjfnjn', 'hbhhh')).toEqual([]);
+  });
+});
+
+describe('#clearOneTask is working properly', () => {
+  test('if only one task is deleted', () => {
+    // Arrange
+    const currentData = [
+      { index: 1, description: 'Task 1', completed: false },
+      { index: 2, description: 'Task 2', completed: false },
+      { index: 3, description: 'Task 3', completed: false },
+      { index: 4, description: 'Task 4', completed: false },
+    ];
+
+    // Act
+    const filtered = Utilities.clearOneTask(currentData, 2);
+
+    // Assert
+    expect(filtered).toHaveLength(currentData.length - 1);
   });
 });
