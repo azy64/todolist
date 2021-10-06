@@ -18,6 +18,8 @@ export default class Utilities {
     }
 
     static clearOneTask = (data, index) => {
+      if (!Array.isArray(data)) return [];
+      if (!Number.isInteger(index)) return data || [];
       const tmp = data.filter((task) => task.index !== index);
       tmp.forEach((element, index) => {
         element.index = (index + 1);

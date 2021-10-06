@@ -53,4 +53,50 @@ describe('#clearOneTask is working properly', () => {
     // Assert
     expect(filtered).toHaveLength(currentData.length - 1);
   });
+
+  test('if the targeted task is deleted', () => {
+    // Arrange
+    const tempData = [
+      { index: 1, description: 'Task 1', completed: false },
+      { index: 2, description: 'Task 2', completed: false },
+      { index: 3, description: 'Task 3', completed: false },
+      { index: 4, description: 'Task 4', completed: false },
+    ];
+    const target = 3;
+    const expectedRes = [
+      { index: 1, description: 'Task 1', completed: false },
+      { index: 2, description: 'Task 2', completed: false },
+      { index: 3, description: 'Task 4', completed: false },
+    ];
+
+    // Act
+    const filtered = Utilities.clearOneTask(tempData, target);
+
+    // Assert
+    expect(filtered).toEqual(expectedRes);
+  });
+
+  test('empty array is returned when passing not an array as first attribute', () => {
+    // Assert
+    expect(Utilities.clearOneTask('tempData', 2)).toEqual([]);
+  });
+
+  test('data is not changed if second attribute index is not a number', () => {
+    // Arrange
+    const tempData = [
+      { index: 1, description: 'Task 1', completed: false },
+      { index: 2, description: 'Task 2', completed: false },
+      { index: 3, description: 'Task 3', completed: false },
+      { index: 4, description: 'Task 4', completed: false },
+    ];
+
+    const tempDataCopy = [...tempData];
+    // Assert
+    expect(Utilities.clearOneTask(tempData, 'a')).toEqual(tempDataCopy);
+  });
+
+  test('passing first argument data as empty array and second attribute index is not a number', () => {
+    // Assert
+    expect(Utilities.clearOneTask([], 'a')).toEqual([]);
+  });
 });
