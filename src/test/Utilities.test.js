@@ -1,4 +1,4 @@
-import Utilities from './src/Utilities.js';
+import Utilities from '../Utilities.js';
 
 const data = [];
 const task = {
