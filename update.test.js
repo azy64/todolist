@@ -11,6 +11,8 @@ const innerHtml = `
 document.body.innerHTML = innerHtml;
 
 const changedStateMocked = jest.fn((data = []) => {
+  if (data.length < 1) return [];
+  if (!Array.isArray(data)) return [];
   const checkboxs = document.querySelectorAll('#task-container input[type="checkbox"]');
   checkboxs.forEach((checkbox) => {
     const id = parseInt(checkbox.id, 10);
@@ -42,5 +44,11 @@ describe('#changedState() is working properly', () => {
     ];
     // Assess
     expect(changedStateMocked(tempData)).toEqual(expectedRes);
+  });
+  test('if empty array is returnd without passing an argument', () => {
+    expect(changedStateMocked()).toEqual([]);
+  });
+  test('if empty array is returnd passing not an array as argument', () => {
+    expect(changedStateMocked('data')).toEqual([]);
   });
 });

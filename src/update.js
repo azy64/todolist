@@ -10,6 +10,8 @@ export default class Update {
     }
 
     static changedState = (data = []) => {
+      if (data.length < 1) return [];
+      if (!Array.isArray(data)) return [];
       const checkboxs = document.querySelectorAll('#task-container input[type="checkbox"]');
       checkboxs.forEach((checkbox) => {
         checkbox.addEventListener('change', () => {
