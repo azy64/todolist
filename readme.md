@@ -1,12 +1,15 @@
 
 # To Do List
 
+A simple yet powerful to-do list, inspired by the minimalist website. It allows the user to add tasks, edit and remove tasks, clear all completed tasks. 
+
 ## Built With
 
 - ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
 - ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
 - ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
 - ![Webpack](https://img.shields.io/badge/webpack-%238DD6F9.svg?style=for-the-badge&logo=webpack&logoColor=black)
+- <img src="./webpack-logo.png" width="30">
 
 
 ## Getting Started
@@ -19,11 +22,19 @@ To get a local copy up and running follow these simple example steps.
 
 2) Open in browser to view site
 
+## Testing
+
+To test this project you need to :
+``` node
+    npm test
+```
 
 ### Prerequisites
 -code editor
 
+## <a href="https://azy64.github.io/todolist/">LIVE DEMO<a> 
 
+## Live Demo [Live Demo Link](https://m0rrighan.github.io/To-do-list/) 
 ## Authors 1
 
 👤 **Azaria azy**

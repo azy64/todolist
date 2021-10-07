@@ -10,6 +10,8 @@ export default class Utilities {
     }
 
     static clearCompletedTasks = (data) => {
+      if (!Array.isArray(data)) return [];
+      if (data.length < 1) return [];
       const tmp = data.filter((task) => task.completed !== true);
       tmp.forEach((element, index) => {
         element.index = (index + 1);

@@ -1,4 +1,4 @@
-import Utilities from './src/Utilities.js';
+import Utilities from '../Utilities.js';
 
 const data = [];
 const task = {
@@ -98,5 +98,46 @@ describe('#clearOneTask is working properly', () => {
   test('passing first argument data as empty array and second attribute index is not a number', () => {
     // Assert
     expect(Utilities.clearOneTask([], 'a')).toEqual([]);
+  });
+});
+
+describe('#clearCompletedTasks is working properly', () => {
+  test('if all completed tasks are removed', () => {
+    // Arrange
+    const tempData = [
+      { index: 1, description: 'Task 1', completed: false },
+      { index: 2, description: 'Task 2', completed: true },
+      { index: 3, description: 'Task 3', completed: false },
+      { index: 4, description: 'Task 4', completed: true },
+    ];
+    const expectedRes = [
+      { index: 1, description: 'Task 1', completed: false },
+      { index: 2, description: 'Task 3', completed: false },
+    ];
+
+    // Act
+    const result = Utilities.clearCompletedTasks(tempData);
+    // Assert
+    expect(result).toEqual(expectedRes);
+  });
+  test('if nothing is deleted when all of the tasks are not completed', () => {
+    // Arrange
+    const tempData = [
+      { index: 1, description: 'Task 1', completed: false },
+      { index: 2, description: 'Task 2', completed: false },
+      { index: 3, description: 'Task 3', completed: false },
+      { index: 4, description: 'Task 4', completed: false },
+    ];
+
+    // Act
+    const result = Utilities.clearCompletedTasks(tempData);
+    // Assert
+    expect(result).toEqual(tempData);
+  });
+  test('if empty array is returned when passing not array attribute', () => {
+    expect(Utilities.clearCompletedTasks('data')).toEqual([]);
+  });
+  test('if empty array is returned when passing empty array attribute', () => {
+    expect(Utilities.clearCompletedTasks([])).toEqual([]);
   });
 });

@@ -32,7 +32,10 @@ const component = () => {
   return element;
 };
 
+// this function is responsable of updating the description of the task when changed
 const onBlur = (e) => {
+  if (!Array.isArray(data)) return;
+  if (data.length < 1) return;
   const parent = e.target.parentNode;
   const imgId = parseInt(parent.previousSibling.previousSibling.firstChild.nextSibling.id, 10);
   if (parent.previousSibling.previousSibling.firstChild.nextSibling.checked) e.target.classList.add('line-through');
