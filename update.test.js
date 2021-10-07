@@ -1,7 +1,7 @@
 /**
  * @jest-environment jsdom
  */
-import Update from './src/update.js';
+// import Update from './src/update.js';
 
 // Arrange
 const innerHtml = `

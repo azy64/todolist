@@ -31,5 +31,6 @@ export default class Update {
         });
       });
       // console.log('vraiment:', checkboxs);
+      return data;
     }
 }
