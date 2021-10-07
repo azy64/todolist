@@ -32,7 +32,6 @@ const component = () => {
   return element;
 };
 
-
 // this function is responsable of updating the description of the task when changed
 const onBlur = (e) => {
   if (!Array.isArray(data)) return;
