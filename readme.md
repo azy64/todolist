@@ -19,11 +19,20 @@ To get a local copy up and running follow these simple example steps.
 
 2) Open in browser to view site
 
+## Testing
+
+To test this project you need to :
+``` node
+    npm test
+    
+    ```
 
 ### Prerequisites
 -code editor
 
+## <a href="https://azy64.github.io/todolist/">LIVE DEMO<a> 
 
+## Live Demo [Live Demo Link](https://m0rrighan.github.io/To-do-list/) 
 ## Authors 1
 
 👤 **Azaria azy**
