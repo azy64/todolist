@@ -1,6 +1,8 @@
 
 # To Do List
 
+A simple yet powerful to-do list, inspired by the minimalist website. It allows the user to add tasks, edit and remove tasks, clear all completed tasks. 
+
 ## Built With
 
 - ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
